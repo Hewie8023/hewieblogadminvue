@@ -173,7 +173,7 @@ export default {
       pageNavigation: {
         currentPage: 1,
         totalPages: 1,
-        pageSize: 1,
+        pageSize: 20,
       },
       deleteDialogShow: false,
       deleteUserName: '',

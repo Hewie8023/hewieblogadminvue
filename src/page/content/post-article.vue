@@ -436,8 +436,6 @@ export default {
       this.nextPath = to.path;
 
     }
-
-
   }
 
 }
@@ -529,7 +527,6 @@ export default {
   .article-handle-part .v-note-op{
     position: sticky;
     top: 0;
-
   }
 
   .article-post-dialog-box .el-dialog__header {

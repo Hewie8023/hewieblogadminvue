@@ -108,7 +108,7 @@ export default {
       pageNavigation: {
         currentPage: 1,
         totalCount: 0,
-        pageSize: 10,
+        pageSize: 30,
       },
       targetDeleteId:'',
       deleteDialogShow: false,

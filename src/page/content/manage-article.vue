@@ -44,7 +44,7 @@
         </el-table-column>
         <el-table-column
             label="文章标题"
-            width="160">
+            width="250">
             <template slot-scope="scope">
               <a :href="blog_constants.portalBaseUrl+'/article/'+scope.row.id" target="_blank">
                 <span v-text="scope.row.title"></span>
@@ -174,7 +174,7 @@ export default {
       pageNavigation: {
         currentPage: 1,
         totalCount: 0,
-        pageSize: 10,
+        pageSize: 20,
       },
     }
   },
