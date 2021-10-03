@@ -158,11 +158,15 @@ export const updateArticle = (article, articleId) => {
 }
 
 export const listComments = (page, size) => {
-    return http.requestGet('/admin/comment/list/' + page + '/' + size);
+    return http.requestGet('/admin/comment/list/comment/' + page + '/' + size);
+}
+
+export const listReplays = (page, size) => {
+    return http.requestGet('/admin/comment/list/replay/' + page + '/' + size);
 }
 
 export const deleteCommentById = (commentId) => {
-    return http.requestDelete('/admin/comment/' + commentId);
+    return http.requestDelete('/admin/comment/2/' + commentId);
 }
 export const topComment = (commentId) => {
     return http.requestPut('/admin/comment/top/' + commentId);

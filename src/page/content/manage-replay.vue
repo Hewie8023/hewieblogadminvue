@@ -3,7 +3,7 @@
     <div>
       <el-table
           v-loading="loading"
-          :data="comments"
+          :data="replays"
           style="width: 100%">
         <el-table-column
             fixed
@@ -22,8 +22,8 @@
             width="200">
           <template slot-scope="scope">
             <a href="#" class="comment-user-info clearifx">
-              <el-avatar :src="scope.row.userAvatar"> </el-avatar>
-              <span class="comment-uername">{{scope.row.userName}}</span>
+              <el-avatar :src="scope.row.fromUavatar"> </el-avatar>
+              <span class="comment-uername">{{scope.row.fromUname}}</span>
             </a>
           </template>
         </el-table-column>
@@ -86,7 +86,7 @@
           title="删除提示"
           :visible.sync="deleteDialogShow"
           width="500px">
-        <span>你确定要删除: {{deleteMessage}} 这篇文章吗？</span>
+        <span>你确定要删除: {{deleteMessage}} 这条回复吗？</span>
         <span slot="footer" class="dialog-footer">
                     <el-button size="small" @click="deleteDialogShow = false">取 消</el-button>
                     <el-button size="small" type="primary" @click="doDeleteItem">确 定</el-button>
@@ -150,10 +150,9 @@ export default {
     },
     listComments(){
       this.loading = true;
-      Api.listComments(this.pageNavigation.currentPage, this.pageNavigation.pageSize).then(result=>{
+      Api.listReplays(this.pageNavigation.currentPage, this.pageNavigation.pageSize).then(result=>{
         if (result.code === Api.success_code) {
-          console.log(result.data.context)
-          this.comments = result.data.content;
+          this.replays = result.data.content;
           this.pageNavigation.currentPage = result.data.number + 1;
           this.pageNavigation.totalCount = result.data.totalElements;
           this.pageNavigation.pageSize = result.data.size;

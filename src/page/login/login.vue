@@ -19,7 +19,7 @@
               </el-form-item>
               <el-form-item label="密码">
                 <el-input type="password"
-                          v-model="hewieUser.password"
+                          v-model="originalPassword"
                           placeholder="密码"></el-input>
               </el-form-item>
               <el-form-item label="人类验证码">
@@ -62,6 +62,7 @@ export default {
         from: 'p_',
       },
       captchaPath: '',
+      originalPassword:''
     }
   },
   methods: {
@@ -80,7 +81,7 @@ export default {
         this.toastE('用户名不能为空');
         return;
       }
-      if (this.hewieUser.password === '') {
+      if (this.originalPassword === '') {
         this.toastE('密码不能为空');
         return;
       }
@@ -89,7 +90,7 @@ export default {
         this.toastE('人类验证码不能为空');
         return;
       }
-      this.hewieUser.password = hex_md5(this.hewieUser.password);
+      this.hewieUser.password = hex_md5(this.originalPassword);
       //向服务器提交数据
       //处理结果
       doLogin(this.loginInfo.verifyCode,

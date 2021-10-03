@@ -9,6 +9,7 @@ const login =() =>import("@/page/login/login")
 const postArticle =() => import("@/page/content/post-article")
 const manageArticle =() => import("@/page/content/manage-article")
 const manageComment =() => import("@/page/content/manage-comment")
+const manageReplay =() => import("@/page/content/manage-replay")
 const manageImage =() => import("@/page/content/manage-image")
 //仪表盘（首页）
 const index =() => import("@/page/dashboard/index")
@@ -66,6 +67,13 @@ export const routes = [
                         icon: 'el-icon-chat-dot-round',
                         hidden: false,
                         component: manageComment
+                    },
+                    {
+                        path: 'manage-replay',
+                        name: '回复管理',
+                        icon: 'el-icon-chat-dot-round',
+                        hidden: false,
+                        component: manageReplay
                     },
                     {
                         path: 'manage-image',
